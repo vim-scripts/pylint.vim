@@ -71,7 +71,7 @@ CompilerSet makeprg=(echo\ '[%]';\ pylint\ -r\ y\ %)
 " We could omit end of file-entry, there is only one file
 " %+I... - include code rating information
 " %-G... - remove all remaining report lines from quickfix buffer
-CompilerSet efm=%+P[%f],%t:\ %#%l:%m,%Z,%+IYour\ code%m,%Z,%-G%.%#
+CompilerSet efm=%+P[%f],%t:\ %#%l\\,\ %#%c:%m,%t:\ %#%l:%m,%Z,%+IYour\ code%m,%Z,%-G%.%#
 
 if g:pylint_onwrite
     augroup python
