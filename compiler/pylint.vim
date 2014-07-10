@@ -80,6 +80,19 @@ if g:pylint_onwrite
     augroup end
 endif
 
+function! PylintOnWriteTogle()
+    if g:pylint_onwrite
+        au! python
+        let g:pylint_onwrite = 0
+    else
+        augroup python
+            au!
+            au BufWritePost * call Pylint(1)
+        augroup end
+        let g:pylint_onwrite = 1
+    endif
+endfunction
+
 function! Pylint(writing)
     if !a:writing && &modified
         " Save before running
